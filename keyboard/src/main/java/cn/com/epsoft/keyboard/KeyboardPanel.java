@@ -90,7 +90,7 @@ public class KeyboardPanel extends LinearLayout implements OnItemClickListener {
   }
 
   @Override
-  public void onText(String text) {
+  public void onAddText(String text) {
     int size = passwords.size();
     if (size < 6) {
       passwords.add(text);
@@ -106,11 +106,21 @@ public class KeyboardPanel extends LinearLayout implements OnItemClickListener {
   }
 
   @Override
-  public void onDelete() {
+  public void onDeleteOne() {
     if (!passwords.isEmpty()) {
       int p = passwords.size() - 1;
       passwords.remove(p);
       passwordTvs[p].setText("");
+    }
+  }
+
+  /**
+   * 清理密码
+   */
+  public void clear() {
+    passwords.clear();
+    for (TextView tv : passwordTvs) {
+      tv.setText("");
     }
   }
 

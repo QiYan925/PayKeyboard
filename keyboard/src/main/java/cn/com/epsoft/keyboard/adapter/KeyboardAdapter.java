@@ -52,7 +52,7 @@ public class KeyboardAdapter extends Adapter {
           @Override
           public void onClick(View view) {
             if (listener != null) {
-              listener.onText(text);
+              listener.onAddText(text);
             }
           }
         });
@@ -62,7 +62,7 @@ public class KeyboardAdapter extends Adapter {
       holder.itemView.setOnClickListener(new OnClickListener() {
         @Override
         public void onClick(View view) {
-          listener.onDelete();
+          listener.onDeleteOne();
         }
       });
     }
@@ -100,9 +100,9 @@ public class KeyboardAdapter extends Adapter {
 
   public interface OnItemClickListener {
 
-    void onText(String text);
+    void onAddText(String text);
 
-    void onDelete();
+    void onDeleteOne();
   }
 
   public class Holder extends ViewHolder {

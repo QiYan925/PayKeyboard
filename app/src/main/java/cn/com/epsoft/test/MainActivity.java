@@ -34,11 +34,13 @@ public class MainActivity extends AppCompatActivity implements KeyboardPanel.OnK
       }
     });
     findViewById(R.id.btn).setOnClickListener(new OnClickListener() {
+      KeyboardPanel panel;
+
       @Override
       public void onClick(View view) {
         if (mDialog == null) {
           mDialog = new Dialog(MainActivity.this, R.style.KeyboardDialog);
-          KeyboardPanel panel = new KeyboardPanel(getBaseContext());
+          panel = new KeyboardPanel(getBaseContext());
           panel.setOnKeyboardListener(MainActivity.this);
           panel.setTitle("仿支付宝密码输入");
           mDialog.setContentView(panel);
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements KeyboardPanel.OnK
           lp.gravity = Gravity.BOTTOM;
           mDialog.getWindow().setAttributes(lp);
         }
+        panel.clear();
         mDialog.show();
       }
     });
