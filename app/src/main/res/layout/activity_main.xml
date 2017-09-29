@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@android:color/white"
+  android:background="@android:color/black"
   android:orientation="vertical">
   <Button
     android:id="@+id/btn"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="弹出"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp"/>
+    android:text="弹出控件"/>
   <cn.com.epsoft.keyboard.KeyboardPanel
+    android:id="@+id/keyboardPanel"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    android:layout_height="wrap_content"
+    app:showTitle="false"/>
 </LinearLayout>

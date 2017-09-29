@@ -9,15 +9,30 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Toast;
 import cn.com.epsoft.keyboard.KeyboardPanel;
+import cn.com.epsoft.keyboard.KeyboardPanel.OnKeyboardListener;
 
 public class MainActivity extends AppCompatActivity implements KeyboardPanel.OnKeyboardListener {
 
   Dialog mDialog;
+  KeyboardPanel panel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    panel = (KeyboardPanel) findViewById(R.id.keyboardPanel);
+    panel.setOnKeyboardListener(new OnKeyboardListener() {
+      @Override
+      public void onComplete(String one, String two, String three, String four, String five,
+          String six) {
+        Toast.makeText(getBaseContext(), "数据为：" + one + two + three + four + five + six,
+            Toast.LENGTH_LONG).show();
+      }
+
+      @Override
+      public void onBack() {
+      }
+    });
     findViewById(R.id.btn).setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {

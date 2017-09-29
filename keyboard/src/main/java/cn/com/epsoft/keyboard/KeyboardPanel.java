@@ -1,6 +1,7 @@
 package cn.com.epsoft.keyboard;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
@@ -44,9 +45,15 @@ public class KeyboardPanel extends LinearLayout implements OnItemClickListener {
 
   public KeyboardPanel(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
+    TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.KeyboardPanel);
+    boolean showTitle = ta.getBoolean(R.styleable.KeyboardPanel_showTitle, true);
+    ta.recycle();
     setOrientation(LinearLayout.VERTICAL);
     setBackgroundColor(Color.parseColor("#f7f7f7"));
     View view = LayoutInflater.from(context).inflate(R.layout.keyboard_panel_keyboard, this);
+    if (!showTitle) {
+      view.findViewById(R.id.titleRl).setVisibility(GONE);
+    }
     titleTv = view.findViewById(R.id.titleTv);
     backIv = view.findViewById(R.id.backIv);
     keyboardRv = view.findViewById(R.id.keyboardRv);
