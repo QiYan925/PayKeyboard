@@ -72,9 +72,10 @@ public class KeyboardPanel extends LinearLayout implements OnItemClickListener {
       @Override
       public void getItemOffsets(Rect outRect, View view, RecyclerView parent, State state) {
         int position = parent.getChildLayoutPosition(view);
-        outRect.top = 1;
+        int space = 2;
+        outRect.top = space;
         if (position % 3 != 0) {
-          outRect.left = 1;
+          outRect.left = space;
         }
       }
     });

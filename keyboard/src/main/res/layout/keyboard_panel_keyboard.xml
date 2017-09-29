@@ -24,7 +24,7 @@
   <View
     android:layout_width="match_parent"
     android:layout_height="1px"
-    android:background="#e4e4e4"/>
+    android:background="#d9d9d9"/>
   <TableLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -113,5 +113,6 @@
     android:id="@+id/keyboardRv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#d9d9d9"
     android:layout_marginTop="50dp"/>
 </merge>
