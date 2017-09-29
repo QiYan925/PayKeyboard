@@ -25,7 +25,7 @@ import java.util.List;
  * @created at 2017/9/28 16:40
  */
 
-public class KeyboardPanel extends LinearLayout implements OnItemClickListener {
+public class PayKeyboardView extends LinearLayout implements OnItemClickListener {
 
   private TextView titleTv;
   private ImageView backIv;
@@ -34,23 +34,23 @@ public class KeyboardPanel extends LinearLayout implements OnItemClickListener {
   private RecyclerView keyboardRv;
   KeyboardAdapter adapter = new KeyboardAdapter();
 
-  public KeyboardPanel(Context context) {
+  public PayKeyboardView(Context context) {
     this(context, null);
   }
 
-  public KeyboardPanel(Context context,
+  public PayKeyboardView(Context context,
       @Nullable AttributeSet attrs) {
     this(context, attrs, 0);
   }
 
-  public KeyboardPanel(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+  public PayKeyboardView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.KeyboardPanel);
-    boolean showTitle = ta.getBoolean(R.styleable.KeyboardPanel_showTitle, true);
+    TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.PayKeyboardView);
+    boolean showTitle = ta.getBoolean(R.styleable.PayKeyboardView_showTitle, true);
     ta.recycle();
     setOrientation(LinearLayout.VERTICAL);
     setBackgroundColor(Color.parseColor("#f7f7f7"));
-    View view = LayoutInflater.from(context).inflate(R.layout.keyboard_panel_keyboard, this);
+    View view = LayoutInflater.from(context).inflate(R.layout.keyboard_view_keyboard, this);
     if (!showTitle) {
       view.findViewById(R.id.titleRl).setVisibility(GONE);
     }

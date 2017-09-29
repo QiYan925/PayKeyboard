@@ -8,19 +8,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Toast;
-import cn.com.epsoft.keyboard.KeyboardPanel;
-import cn.com.epsoft.keyboard.KeyboardPanel.OnKeyboardListener;
+import cn.com.epsoft.keyboard.PayKeyboardView;
+import cn.com.epsoft.keyboard.PayKeyboardView.OnKeyboardListener;
 
-public class MainActivity extends AppCompatActivity implements KeyboardPanel.OnKeyboardListener {
+public class MainActivity extends AppCompatActivity implements PayKeyboardView.OnKeyboardListener {
 
   Dialog mDialog;
-  KeyboardPanel panel;
+  PayKeyboardView panel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    panel = (KeyboardPanel) findViewById(R.id.keyboardPanel);
+    panel = (PayKeyboardView) findViewById(R.id.keyboardPanel);
     panel.setOnKeyboardListener(new OnKeyboardListener() {
       @Override
       public void onComplete(String one, String two, String three, String four, String five,
@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity implements KeyboardPanel.OnK
       }
     });
     findViewById(R.id.btn).setOnClickListener(new OnClickListener() {
-      KeyboardPanel panel;
+      PayKeyboardView panel;
 
       @Override
       public void onClick(View view) {
         if (mDialog == null) {
           mDialog = new Dialog(MainActivity.this, R.style.KeyboardDialog);
-          panel = new KeyboardPanel(getBaseContext());
+          panel = new PayKeyboardView(getBaseContext());
           panel.setOnKeyboardListener(MainActivity.this);
           panel.setTitle("仿支付宝密码输入");
           mDialog.setContentView(panel);
