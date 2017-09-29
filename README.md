@@ -4,11 +4,11 @@
 ![](/screenshot/p1.png)
 ![](/screenshot/g1.gif)
 
-### 封装成KeyboardPanel控件，调用代码如下
+### 封装成PayKeyboardView控件，调用代码如下
 
         
-          KeyboardPanel.setTitle("仿支付宝密码输入");
-          KeyboardPanel.setOnKeyboardListener(new OnKeyboardListener() {
+          PayKeyboardView.setTitle("仿支付宝密码输入");
+          PayKeyboardView.setOnKeyboardListener(new OnKeyboardListener() {
             @Override
             public void onComplete(String one, String two, String three, String four, String five,
                 String six) {
