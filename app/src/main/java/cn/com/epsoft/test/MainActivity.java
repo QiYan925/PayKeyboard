@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements KeyboardPanel.OnK
       @Override
       public void onClick(View view) {
         if (mDialog == null) {
-          mDialog = new Dialog(MainActivity.this, R.style.my_dialog);
+          mDialog = new Dialog(MainActivity.this, R.style.KeyboardDialog);
           KeyboardPanel panel = new KeyboardPanel(getBaseContext());
           panel.setOnKeyboardListener(MainActivity.this);
           panel.setTitle("仿支付宝密码输入");
