@@ -1,4 +1,4 @@
-package cn.com.epsoft.keyboard;
+package cn.com.epsoft.keyboard.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,8 +15,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import cn.com.epsoft.keyboard.adapter.KeyboardAdapter;
-import cn.com.epsoft.keyboard.adapter.KeyboardAdapter.OnItemClickListener;
+import cn.com.epsoft.keyboard.R;
+import cn.com.epsoft.keyboard.widget.adapter.KeyboardAdapter;
+import cn.com.epsoft.keyboard.widget.adapter.KeyboardAdapter.OnItemClickListener;
 import java.util.ArrayList;
 import java.util.List;
 

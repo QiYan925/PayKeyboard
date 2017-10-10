@@ -1,4 +1,4 @@
-package cn.com.epsoft.keyboard.adapter;
+package cn.com.epsoft.keyboard.widget.adapter;
 
 import android.content.Context;
 import android.graphics.Color;

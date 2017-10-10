@@ -1,19 +1,21 @@
 package cn.com.epsoft.test;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDialog;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Toast;
-import cn.com.epsoft.keyboard.PayKeyboardView;
-import cn.com.epsoft.keyboard.PayKeyboardView.OnKeyboardListener;
+import cn.com.epsoft.keyboard.PayKeyboardFragment;
+import cn.com.epsoft.keyboard.widget.PayKeyboardView;
+import cn.com.epsoft.keyboard.widget.PayKeyboardView.OnKeyboardListener;
 
 public class MainActivity extends AppCompatActivity implements PayKeyboardView.OnKeyboardListener {
 
-  Dialog mDialog;
+  PayKeyboardFragment dialogFrag;
+  AppCompatDialog mDialog;
   PayKeyboardView panel;
 
   @Override
@@ -39,10 +41,10 @@ public class MainActivity extends AppCompatActivity implements PayKeyboardView.O
       @Override
       public void onClick(View view) {
         if (mDialog == null) {
-          mDialog = new Dialog(MainActivity.this, R.style.KeyboardDialog);
+          mDialog = new AppCompatDialog(MainActivity.this, R.style.KeyboardDialog);
           panel = new PayKeyboardView(getBaseContext());
           panel.setOnKeyboardListener(MainActivity.this);
-          panel.setTitle("仿支付宝密码输入");
+          panel.setTitle("Dialog弹出");
           mDialog.setContentView(panel);
           WindowManager.LayoutParams lp = mDialog.getWindow().getAttributes();
           lp.width = WindowManager.LayoutParams.MATCH_PARENT;
@@ -53,6 +55,17 @@ public class MainActivity extends AppCompatActivity implements PayKeyboardView.O
         }
         panel.clear();
         mDialog.show();
+      }
+    });
+    findViewById(R.id.btn1).setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        if (dialogFrag == null) {
+          dialogFrag = new PayKeyboardFragment();
+          dialogFrag.setTitle("Fragment弹出");
+          dialogFrag.setOnKeyboardListener(MainActivity.this);
+        }
+        dialogFrag.show(getFragmentManager(), "payKeyboardDialog");
       }
     });
   }
@@ -68,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements PayKeyboardView.O
   public void onBack() {
     if (mDialog != null) {
       mDialog.dismiss();
+    }
+    if (dialogFrag != null) {
+      dialogFrag.dismiss();
     }
   }
 }

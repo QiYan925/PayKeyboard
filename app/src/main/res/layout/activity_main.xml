@@ -11,8 +11,13 @@
     android:id="@+id/btn"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="弹出控件"/>
-  <cn.com.epsoft.keyboard.PayKeyboardView
+    android:text="Dialog弹出"/>
+  <Button
+    android:id="@+id/btn1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Fragment弹出"/>
+  <cn.com.epsoft.keyboard.widget.PayKeyboardView
     android:id="@+id/keyboardPanel"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
